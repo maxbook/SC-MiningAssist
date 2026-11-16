@@ -18,7 +18,7 @@ A small, local **Star Citizen mining and salvage overlay for Windows**, written 
 
 Requires **Windows 10/11 x64** with an English or French Windows OCR language installed. The app is entirely in English.
 
-1. Download the portable **MiningMod-v…-win64.zip** from this repository's **Releases** page, when available. Extract the archive; do not run it from inside the ZIP.
+1. Download the portable **MiningMod-v0.1.0-win64.zip** from [GitHub Releases](https://github.com/maxbook/miningmod/releases/tag/v0.1.0). Extract the archive; do not run it from inside the ZIP.
 2. Open **MiningMod.exe** and click **Start scanning**.
 3. Return to Star Citizen in **borderless windowed mode** and display an RS signature in scan mode.
 

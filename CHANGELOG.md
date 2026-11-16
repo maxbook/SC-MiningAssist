@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0 — first public preview (unreleased)
+## 0.1.0 — 2026-11-16
 
 - Automatic on-screen RS detection with native Windows OCR.
 - Mining resource and rock-count estimates, plus salvage panel detection.

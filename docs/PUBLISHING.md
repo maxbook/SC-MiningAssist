@@ -1,6 +1,6 @@
 # Publishing MiningMod
 
-This checkout is prepared for a first GitHub release. Preparation does not create a public repository or upload files. The intended repository name is **miningmod**.
+The public project is [maxbook/miningmod](https://github.com/maxbook/miningmod). Follow the release steps below for subsequent previews. The initial repository setup is retained for forks and maintainers creating a separate repository.
 
 ## Before the first push
 
@@ -24,7 +24,7 @@ Suggested topics: `star-citizen`, `mining`, `salvage`, `ocr`, `rust`, `windows`,
 
 ## Create the preview release
 
-Wait for Windows CI to pass on main. Update the version in Cargo.toml/Cargo.lock, CHANGELOG.md and docs/RELEASE_NOTES.md together when needed. For the prepared first version, change the changelog's unreleased heading to the actual release date before tagging, then commit.
+Wait for Windows CI to pass on main. Update the version in Cargo.toml/Cargo.lock, CHANGELOG.md, README.md and docs/RELEASE_NOTES.md together. Date the changelog entry and commit before tagging. The commands below use the first preview's version as an example; choose a new version for subsequent releases.
 
 ```powershell
 git tag -a v0.1.0 -m "MiningMod 0.1.0 preview"
