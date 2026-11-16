@@ -7,13 +7,13 @@ try {
     $manifest = Get-Content -LiteralPath Cargo.toml -Raw
     $version = [regex]::Match($manifest,'(?m)^version = "([0-9]+\.[0-9]+\.[0-9]+(?:-[A-Za-z0-9.-]+)?)"').Groups[1].Value
     if (-not $version) { throw 'Cannot determine the release version from Cargo.toml.' }
-    $names = @('MiningMod.exe','signatures.json','README.md','CHANGELOG.md','LICENSE','THIRD_PARTY_NOTICES.txt')
+    $names = @('SC-MiningAssist.exe','signatures.json','README.md','CHANGELOG.md','LICENSE','THIRD_PARTY_NOTICES.txt')
     $files = @($names | ForEach-Object {
         $path = Join-Path $root ('dist/' + $_)
         if (-not (Test-Path -LiteralPath $path -PathType Leaf)) { throw "Missing release file: $_" }
         $path
     })
-    $archiveName = "MiningMod-v$version-win64.zip"
+    $archiveName = "SC-MiningAssist-v$version-win64.zip"
     $archivePath = Join-Path $root ('dist/' + $archiveName)
     # Explicit allowlist: no old ZIPs, debug output or local screenshots enter the package.
     Compress-Archive -LiteralPath $files -DestinationPath $archivePath -CompressionLevel Optimal -Force

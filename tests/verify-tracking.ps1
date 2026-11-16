@@ -1,4 +1,4 @@
-param([string]$Exe = (Join-Path (Split-Path $PSScriptRoot -Parent) 'target\release\miningmod.exe'))
+param([string]$Exe = (Join-Path (Split-Path $PSScriptRoot -Parent) 'target\release\sc-mining-assist.exe'))
 $ErrorActionPreference='Stop'
 $Exe=(Resolve-Path -LiteralPath $Exe).Path
 $output=Join-Path (Split-Path $PSScriptRoot -Parent) 'artifacts'

@@ -1,5 +1,5 @@
 [package]
-name = "miningmod"
+name = "sc-mining-assist"
 version = "0.1.0"
 edition = "2021"
 description = "Lightweight mining and salvage OCR overlay for Star Citizen on Windows"

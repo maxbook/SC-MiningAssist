@@ -14,7 +14,7 @@ Describe the expected and actual result, including the RS value if relevant.
 2.
 
 **Environment**
-- MiningMod version:
+- SC-MiningAssist version:
 - Windows version:
 - Star Citizen patch:
 - Resolution and Windows display scaling:

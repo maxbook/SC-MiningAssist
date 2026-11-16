@@ -1,7 +1,7 @@
 param([Parameter(Mandatory=$true)][string]$ImagePath, [string]$Exe)
 $ErrorActionPreference = 'Stop'
 $root = Split-Path $PSScriptRoot -Parent
-if (-not $Exe) { $Exe = Join-Path $root 'dist\MiningMod.exe' }
+if (-not $Exe) { $Exe = Join-Path $root 'dist\SC-MiningAssist.exe' }
 $Exe = (Resolve-Path -LiteralPath $Exe).Path
 $output = Join-Path $root 'artifacts'
 New-Item -ItemType Directory -Force -Path $output | Out-Null

@@ -13,8 +13,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'Cargo metadata failed.' }
     $metadata = $raw | ConvertFrom-Json
     $output = [System.Text.StringBuilder]::new()
-    [void]$output.AppendLine('MiningMod third-party dependencies. Runtime and build dependencies are included below.')
-    foreach ($package in ($metadata.packages | Where-Object { $_.name -ne 'miningmod' } | Sort-Object name,version)) {
+    [void]$output.AppendLine('SC-MiningAssist third-party dependencies. Runtime and build dependencies are included below.')
+    foreach ($package in ($metadata.packages | Where-Object { $_.name -ne 'sc-mining-assist' } | Sort-Object name,version)) {
         [void]$output.AppendLine()
         [void]$output.AppendLine("$($package.name) $($package.version) ($($package.license))")
         $packageRoot = Split-Path $package.manifest_path -Parent

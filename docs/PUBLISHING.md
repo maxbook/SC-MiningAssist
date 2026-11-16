@@ -1,18 +1,18 @@
-# Publishing MiningMod
+# Publishing SC-MiningAssist
 
-The public project is [maxbook/miningmod](https://github.com/maxbook/miningmod). Follow the release steps below for subsequent previews. The initial repository setup is retained for forks and maintainers creating a separate repository.
+The public project is [maxbook/SC-MiningAssist](https://github.com/maxbook/SC-MiningAssist). Follow the release steps below for subsequent previews. The initial repository setup is retained for forks and maintainers creating a separate repository.
 
 ## Before the first push
 
 1. Review README.md, LICENSE, the community data attribution and the exact Git file list. Keep .tools/, target/, dist/, artifacts/ and private screenshots out of Git.
 2. Run the checks in CONTRIBUTING.md on Windows, including the local panel/HUD/lifecycle/OCR tracking checks.
 3. Run scripts/package.ps1. It produces a portable ZIP and SHA256SUMS.txt in dist/, with an explicit file allowlist and an integrity check for every archive entry.
-4. Create an **empty public** GitHub repository named miningmod on the intended account. Do not initialize another README or license on GitHub.
+4. Create an **empty public** GitHub repository named SC-MiningAssist on the intended account. Do not initialize another README or license on GitHub.
 
 For the intended maxbook account, once the empty repository exists:
 
 ```powershell
-git remote add origin https://github.com/maxbook/miningmod.git
+git remote add origin https://github.com/maxbook/SC-MiningAssist.git
 git push -u origin main
 ```
 
@@ -27,7 +27,7 @@ Suggested topics: `star-citizen`, `mining`, `salvage`, `ocr`, `rust`, `windows`,
 Wait for Windows CI to pass on main. Update the version in Cargo.toml/Cargo.lock, CHANGELOG.md, README.md and docs/RELEASE_NOTES.md together. Date the changelog entry and commit before tagging. The commands below use the first preview's version as an example; choose a new version for subsequent releases.
 
 ```powershell
-git tag -a v0.1.0 -m "MiningMod 0.1.0 preview"
+git tag -a v0.1.0 -m "SC-MiningAssist 0.1.0 preview"
 git push origin main
 git push origin v0.1.0
 ```
@@ -39,7 +39,7 @@ The workflow deliberately does not publish or announce the release automatically
 ## Verify a downloaded archive
 
 ```powershell
-Get-FileHash .\MiningMod-v0.1.0-win64.zip -Algorithm SHA256
+Get-FileHash .\SC-MiningAssist-v0.1.0-win64.zip -Algorithm SHA256
 ```
 
 Compare the result with SHA256SUMS.txt from the same release. The checksum verifies bytes; it is not a code-signing certificate.

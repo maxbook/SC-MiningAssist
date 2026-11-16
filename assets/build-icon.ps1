@@ -2,7 +2,7 @@
 # System.Drawing is used only during asset generation, never by the application.
 $ErrorActionPreference = 'Stop'
 Add-Type -AssemblyName System.Drawing
-[xml]$source = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'miningmod.svg') -Raw
+[xml]$source = Get-Content -LiteralPath (Join-Path $PSScriptRoot 'sc-mining-assist.svg') -Raw
 $images = @()
 foreach ($size in @(16,24,32,48,64,128,256)) {
     $canvas = [System.Drawing.Bitmap]::new($size * 4,$size * 4)
@@ -26,10 +26,10 @@ foreach ($size in @(16,24,32,48,64,128,256)) {
         $scaled.DrawImage($canvas,0,0,$size,$size)
         $bitmap.Save($stream,[System.Drawing.Imaging.ImageFormat]::Png)
         $images += @{Size=$size;Bytes=$stream.ToArray()}
-        if ($size -eq 256) { [System.IO.File]::WriteAllBytes((Join-Path $PSScriptRoot 'miningmod.png'),$stream.ToArray()) }
+        if ($size -eq 256) { [System.IO.File]::WriteAllBytes((Join-Path $PSScriptRoot 'sc-mining-assist.png'),$stream.ToArray()) }
     } finally { $stream.Dispose(); $scaled.Dispose(); $bitmap.Dispose(); $g.Dispose(); $canvas.Dispose() }
 }
-$file = [System.IO.File]::Create((Join-Path $PSScriptRoot 'miningmod.ico'))
+$file = [System.IO.File]::Create((Join-Path $PSScriptRoot 'sc-mining-assist.ico'))
 $writer = [System.IO.BinaryWriter]::new($file)
 try {
     $writer.Write([uint16]0); $writer.Write([uint16]1); $writer.Write([uint16]$images.Count)
@@ -44,4 +44,4 @@ try {
     }
     foreach ($entry in $images) { $writer.Write([byte[]]$entry.Bytes) }
 } finally { $writer.Dispose() }
-Write-Host 'Generated miningmod.png and miningmod.ico (16–256 px) from miningmod.svg.'
+Write-Host 'Generated sc-mining-assist.png and sc-mining-assist.ico (16–256 px) from sc-mining-assist.svg.'

@@ -29,13 +29,13 @@ try {
         & $cargo build --release --locked
         if ($LASTEXITCODE -ne 0) { throw 'Build failed.' }
         New-Item -ItemType Directory -Force -Path dist | Out-Null
-        Copy-Item -LiteralPath target\release\miningmod.exe -Destination dist\MiningMod.exe
+        Copy-Item -LiteralPath target\release\sc-mining-assist.exe -Destination dist\SC-MiningAssist.exe
         Copy-Item -LiteralPath data\signatures.json -Destination dist
         Copy-Item -LiteralPath LICENSE -Destination dist
         if (Test-Path THIRD_PARTY_NOTICES.txt) { Copy-Item -LiteralPath THIRD_PARTY_NOTICES.txt -Destination dist }
         Copy-Item -LiteralPath docs\PORTABLE.md -Destination dist\README.md
         Copy-Item -LiteralPath CHANGELOG.md -Destination dist
-        Write-Host ('Ready: ' + (Join-Path $PSScriptRoot 'dist\MiningMod.exe'))
+        Write-Host ('Ready: ' + (Join-Path $PSScriptRoot 'dist\SC-MiningAssist.exe'))
     }
     if ($LASTEXITCODE -ne 0) { throw 'Check failed.' }
 } finally { Pop-Location }

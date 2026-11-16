@@ -1,8 +1,8 @@
-First portable preview of MiningMod for Windows x64.
+First portable preview of SC-MiningAssist for Windows x64.
 
 Read an on-screen Star Citizen RS signature and see estimated mining resources, rock counts or salvage panel counts in a compact top-edge overlay. Includes automatic tracking, native Windows OCR, mineral difficulty hints, a minimal dark UI and tray controls.
 
-Download **MiningMod-v0.1.0-win64.zip**, extract it and run **MiningMod.exe**. Click **Start scanning**, then return to Star Citizen in borderless windowed mode. **Ctrl + Alt + F8** pauses/resumes.
+Download **SC-MiningAssist-v0.1.0-win64.zip**, extract it and run **SC-MiningAssist.exe**. Click **Start scanning**, then return to Star Citizen in borderless windowed mode. **Ctrl + Alt + F8** pauses/resumes.
 
 Requires Windows 10/11 x64 with English or French Windows OCR support. The preview executable is unsigned. SHA256SUMS.txt contains the archive's checksum.
 

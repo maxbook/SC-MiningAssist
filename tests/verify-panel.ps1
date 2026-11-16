@@ -1,7 +1,7 @@
-param([string]$Exe = (Join-Path (Split-Path $PSScriptRoot -Parent) 'dist\MiningMod.exe'))
+param([string]$Exe = (Join-Path (Split-Path $PSScriptRoot -Parent) 'dist\SC-MiningAssist.exe'))
 $ErrorActionPreference = 'Stop'
 $Exe = (Resolve-Path -LiteralPath $Exe).Path
-if (Get-Process MiningMod -ErrorAction SilentlyContinue) { throw 'Close MiningMod before running this test.' }
+if (Get-Process SC-MiningAssist,MiningMod -ErrorAction SilentlyContinue) { throw 'Close SC-MiningAssist and any older preview before running this test.' }
 Add-Type -AssemblyName System.Drawing
 Add-Type -TypeDefinition @'
 using System;

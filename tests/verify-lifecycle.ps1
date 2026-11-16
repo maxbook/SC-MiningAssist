@@ -1,8 +1,8 @@
-param([string]$Exe = (Join-Path (Split-Path $PSScriptRoot -Parent) 'dist\MiningMod.exe'))
+param([string]$Exe = (Join-Path (Split-Path $PSScriptRoot -Parent) 'dist\SC-MiningAssist.exe'))
 $ErrorActionPreference = 'Stop'
 $Exe = (Resolve-Path -LiteralPath $Exe).Path
-if (Get-Process MiningMod -ErrorAction SilentlyContinue | Where-Object { $_.Path -eq $Exe }) {
-    throw 'Close MiningMod before the lifecycle test.'
+if (Get-Process SC-MiningAssist,MiningMod -ErrorAction SilentlyContinue) {
+    throw 'Close SC-MiningAssist and any older preview before the lifecycle test.'
 }
 Add-Type -TypeDefinition @'
 using System;
@@ -41,7 +41,7 @@ public static class MiningLifecycle {
         for (int i=0; i<GetMenuItemCount(info.Menu); i++) {
             var text = new StringBuilder(100);
             GetMenuStringW(info.Menu,(uint)i,text,100,0x400);
-            if (text.ToString() == "Quit MiningMod") return GetMenuItemID(info.Menu,i);
+            if (text.ToString() == "Quit SC-MiningAssist") return GetMenuItemID(info.Menu,i);
         }
         return 0;
     }

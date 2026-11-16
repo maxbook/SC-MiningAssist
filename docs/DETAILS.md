@@ -4,7 +4,7 @@ A lightweight local mining and salvage assistant for Star Citizen. It reads the 
 
 ## Getting started
 
-1. Extract the release archive and run **MiningMod.exe** on Windows 10/11 x64.
+1. Extract the release archive and run **SC-MiningAssist.exe** on Windows 10/11 x64.
 2. Click **Start scanning**. The window minimizes; mining and salvage detection are automatic.
 3. Return to Star Citizen in **borderless windowed mode** and display an RS signature in scan mode.
 
@@ -18,13 +18,13 @@ A confirmed signature remains visible while successful readings continue. Brief 
 
 ## Minimal interface
 
-The compact dark control window contains only the current status, **Start scanning / Pause scanning**, and **Quit**. Detection mode, area, rate and opacity are automatic. **Ctrl + Alt + F8** toggles pause/resume. Double-click the crystal tray icon to reopen the window; right-click for the controls or **Quit MiningMod**.
+The compact dark control window contains only the current status, **Start scanning / Pause scanning**, and **Quit**. Detection mode, area, rate and opacity are automatic. **Ctrl + Alt + F8** toggles pause/resume. Double-click the crystal tray icon to reopen the window; right-click for the controls or **Quit SC-MiningAssist**.
 
 The overlay remains a single click-through line: resource, rock count, and **LOW / MEDIUM / HIGH** in green, gold or red; salvage shows **SALVAGE · N PANELS**. It is **28 px tall** at 100% Windows scaling, centered against the monitor's top edge, with cyan/gold text and cut corners. No animations, focus stealing or additional information line. Unidentified ROC/FPS deposits and salvage are not assigned mineral difficulty.
 
 **Quit**, the X button, Alt+F4 and taskbar Close all exit the program. **Start scanning** keeps it active in the background. Launching again reopens the existing window. The program starts paused, does not add itself to Windows startup, and does not require administrator privileges.
 
-Legacy preferences in **%LOCALAPPDATA%\\MiningMod\\settings.json** no longer constrain detection: old manual areas, activity filters, refresh settings and opacity choices are reset to the automatic policy when loading. The custom mineral catalog remains supported.
+Legacy preferences in **%LOCALAPPDATA%\\SC-MiningAssist\\settings.json** no longer constrain detection: old manual areas, activity filters, refresh settings and opacity choices are reset to the automatic policy when loading. The custom mineral catalog remains supported.
 
 ## What the signature tells us
 
@@ -38,7 +38,7 @@ The application automatically searches for mining rocks and salvage panels. For 
 
 ROC/FPS modes show deposit counts only, without guessing the gem type. Distances with units, rounded values such as **10.8K**, incomplete readings and unmatched numbers are ignored in automatic mode.
 
-Difficulty is a **mineral-level estimate**, not confirmation that a particular rock can be fractured. It takes the higher relative resistance/instability rating from the [SCMINER community mineral directory](https://scminer.rocks/data/mineral-directory), checked November 15, 2026, and groups those ratings into three categories. This grouping is specific to MiningMod. The table and source are in [data/mining-difficulty.json](../data/mining-difficulty.json). Cluster count does not change the difficulty of an individual rock. Actual mass, secondary composition, scanned resistance, laser head and modules are still needed to judge feasibility. A custom resource with no known properties displays **?**.
+Difficulty is a **mineral-level estimate**, not confirmation that a particular rock can be fractured. It takes the higher relative resistance/instability rating from the [SCMINER community mineral directory](https://scminer.rocks/data/mineral-directory), checked November 15, 2026, and groups those ratings into three categories. This grouping is specific to SC-MiningAssist. The table and source are in [data/mining-difficulty.json](../data/mining-difficulty.json). Cluster count does not change the difficulty of an individual rock. Actual mass, secondary composition, scanned resistance, laser head and modules are still needed to judge feasibility. A custom resource with no known properties displays **?**.
 
 The mineral catalog in [data/signatures.json](../data/signatures.json) is a community 4.7+ reference from [STARVEIN](https://starvein.app/en/signatures), checked November 15, 2026. It is not in-game validation of the current patch. Search limits are 12 rocks (**max_rocks**) and 100 panels (**max_panels**); these are application limits, not guaranteed in-game cluster sizes. **salvage_panel_rs** sets the panel base signature. Place a modified **signatures.json** beside the executable and restart to override the embedded catalog. Older catalogs without salvage fields receive the defaults. Custom names are displayed exactly as supplied.
 
@@ -81,9 +81,9 @@ To diagnose an image:
 
 ~~~powershell
 # Automatic search and verification of the small tracked rectangle
-Start-Process .\dist\MiningMod.exe -ArgumentList '--ocr-file "C:\path\capture.jpg" --output "C:\path\report.json"' -WindowStyle Hidden -Wait
+Start-Process .\dist\SC-MiningAssist.exe -ArgumentList '--ocr-file "C:\path\capture.jpg" --output "C:\path\report.json"' -WindowStyle Hidden -Wait
 # Read a precise x,y,width,height rectangle
-Start-Process .\dist\MiningMod.exe -ArgumentList '--ocr-file "C:\path\capture.jpg" --rect 2540,928,105,45 --output "C:\path\report.json"' -WindowStyle Hidden -Wait
+Start-Process .\dist\SC-MiningAssist.exe -ArgumentList '--ocr-file "C:\path\capture.jpg" --rect 2540,928,105,45 --output "C:\path\report.json"' -WindowStyle Hidden -Wait
 ~~~
 
 Diagnostic commands write only the requested report. They do not modify settings or source images. The default activity is Auto; use **--mode auto|mining|salvage|roc|fps** to select another.

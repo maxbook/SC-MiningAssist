@@ -1,6 +1,6 @@
-# Contributing to MiningMod
+# Contributing to SC-MiningAssist
 
-Keep MiningMod small, local and unobtrusive. The app should remain a native Rust/Win32 utility with an English UI, automatic detection and a one-line overlay.
+Keep SC-MiningAssist small, local and unobtrusive. The app should remain a native Rust/Win32 utility with an English UI, automatic detection and a one-line overlay.
 
 ## Build
 
@@ -17,7 +17,7 @@ The build script discovers the MSVC linker and SDK. A standard rustup installati
 
 ## Checks that need a Windows desktop
 
-Close MiningMod first. Install an English or French Windows OCR language, then run:
+Close SC-MiningAssist first. Install an English or French Windows OCR language, then run:
 
 ```powershell
 .\tests\verify-panel.ps1
@@ -26,7 +26,7 @@ Close MiningMod first. Install an English or French Windows OCR language, then r
 .\tests\verify-tracking.ps1
 ```
 
-The panel and HUD checks use PrintWindow on MiningMod's own windows. They do not start a desktop capture session. The lifecycle checks exercise single-instance startup, tray-menu shutdown and taskbar Close. Tracking tests generate their own synthetic images, cover target changes and distance rejection, and write reports under artifacts/.
+The panel and HUD checks use PrintWindow on SC-MiningAssist's own windows. They do not start a desktop capture session. The lifecycle checks exercise single-instance startup, tray-menu shutdown and taskbar Close. Tracking tests generate their own synthetic images, cover target changes and distance rejection, and write reports under artifacts/.
 
 If artifacts/original.png, head-left.png, head-right-down.png, 1440p.png or 1080p.png exist, tracking checks also replay them as optional cockpit fixtures expecting RS 10800. These personal game screenshots are not part of the repository. The separate verify-ocr.ps1 script needs a supplied 5120×2880 screenshot with RS 10800; it is not a clean-checkout prerequisite.
 
@@ -49,6 +49,6 @@ For detection fixes, add a focused failing case using synthetic images or a mini
 
 ## Icon and dependencies
 
-Edit assets/miningmod.svg, then run assets/build-icon.ps1 on Windows. The script generates the committed PNG and ICO at 16–256 px; System.Drawing is a build-time convenience, not an application dependency.
+Edit assets/sc-mining-assist.svg, then run assets/build-icon.ps1 on Windows. The script generates the committed PNG and ICO at 16–256 px; System.Drawing is a build-time convenience, not an application dependency.
 
 Keep Cargo.lock committed. When changing dependencies, review their license metadata and regenerate notices with scripts/update-notices.ps1. Commit the updated THIRD_PARTY_NOTICES.txt. Contributions are accepted under the repository's MIT license.

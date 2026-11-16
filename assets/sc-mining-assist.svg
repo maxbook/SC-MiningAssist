@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
-  <title>MiningMod — faceted ore</title>
+  <title>SC-MiningAssist — faceted ore</title>
   <polygon fill="#10171B" points="40,8 216,8 248,40 248,216 216,248 40,248 8,216 8,40"/>
   <polygon fill="#BDF3EF" points="128,34 198,78 128,120 58,78"/>
   <polygon fill="#78D8E8" points="58,78 128,120 128,222 58,174"/>

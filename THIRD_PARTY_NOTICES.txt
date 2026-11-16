@@ -1,4 +1,4 @@
-MiningMod third-party dependencies. Runtime and build dependencies are included below.
+SC-MiningAssist third-party dependencies. Runtime and build dependencies are included below.
 
 itoa 1.0.19 (MIT OR Apache-2.0)
 LICENSE-APACHE

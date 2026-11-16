@@ -79,7 +79,7 @@ pub fn error(message: &str) {
         MessageBoxW(
             null_mut(),
             wide(message).as_ptr(),
-            wide("MiningMod").as_ptr(),
+            wide("SC-MiningAssist").as_ptr(),
             MB_OK | MB_ICONERROR,
         );
     }
@@ -135,6 +135,8 @@ pub fn run() -> Result<(), String> {
     unsafe {
         SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
         SCALE.with(|s| s.set(GetDpiForSystem() as f64 / 96.0));
+        // Retain the pre-release window classes and mutex so the old and renamed
+        // executables still share a single instance during an upgrade.
         let mutex = CreateMutexW(null(), 0, wide("Local\\MiningMod.v1").as_ptr());
         let already_running = GetLastError() == ERROR_ALREADY_EXISTS;
         if mutex.is_null() {
@@ -154,7 +156,7 @@ pub fn run() -> Result<(), String> {
                 }
                 std::thread::sleep(Duration::from_millis(40));
             }
-            return Err("MiningMod is running, but its window is unavailable. Close that instance, then restart MiningMod.".into());
+            return Err("SC-MiningAssist is running, but its window is unavailable. Close that instance, then restart SC-MiningAssist.".into());
         }
         let instance = GetModuleHandleW(null());
         let brush = CreateSolidBrush(panel::BACKGROUND);
@@ -193,7 +195,7 @@ pub fn run() -> Result<(), String> {
         let main = CreateWindowExW(
             WS_EX_APPWINDOW,
             wide("MiningMod.Main").as_ptr(),
-            wide("MiningMod").as_ptr(),
+            wide("SC-MiningAssist").as_ptr(),
             WS_POPUP | WS_SYSMENU | WS_MINIMIZEBOX | WS_CLIPCHILDREN,
             (GetSystemMetrics(SM_CXSCREEN) - px(320)) / 2,
             (GetSystemMetrics(SM_CYSCREEN) - px(176)) / 2,
@@ -207,7 +209,7 @@ pub fn run() -> Result<(), String> {
         let overlay = CreateWindowExW(
             WS_EX_TOPMOST | WS_EX_TOOLWINDOW | WS_EX_NOACTIVATE | WS_EX_LAYERED | WS_EX_TRANSPARENT,
             wide("MiningMod.Overlay").as_ptr(),
-            wide("MiningMod · Overlay").as_ptr(),
+            wide("SC-MiningAssist · Overlay").as_ptr(),
             WS_POPUP,
             0,
             0,
@@ -236,7 +238,7 @@ pub fn run() -> Result<(), String> {
         child(
             main,
             "STATIC",
-            "MININGMOD",
+            "SC-MININGASSIST",
             0,
             [43, 8, 170, 18],
             panel::BRAND as usize,
@@ -375,7 +377,7 @@ unsafe fn tray_data(main: HWND) -> NOTIFYICONDATAW {
         uCallbackMessage: TRAY,
         ..Default::default()
     };
-    let tip = wide("MiningMod · right-click for controls");
+    let tip = wide("SC-MiningAssist · right-click for controls");
     data.szTip[..tip.len()].copy_from_slice(&tip);
     data
 }
@@ -611,7 +613,7 @@ unsafe extern "system" fn main_proc(hwnd: HWND, msg: u32, wp: WPARAM, lp: LPARAM
             // starts so timer, close and command messages remain serviceable.
             let running = APP.with(|cell| cell.borrow().as_ref().is_some_and(|a| a.running));
             let menu = CreatePopupMenu();
-            AppendMenuW(menu, MF_STRING, 200, wide("Show MiningMod").as_ptr());
+            AppendMenuW(menu, MF_STRING, 200, wide("Show SC-MiningAssist").as_ptr());
             AppendMenuW(
                 menu,
                 MF_STRING,
@@ -619,7 +621,7 @@ unsafe extern "system" fn main_proc(hwnd: HWND, msg: u32, wp: WPARAM, lp: LPARAM
                 wide(if running { "Pause" } else { "Start" }).as_ptr(),
             );
             AppendMenuW(menu, MF_SEPARATOR, 0, null());
-            AppendMenuW(menu, MF_STRING, QUIT, wide("Quit MiningMod").as_ptr());
+            AppendMenuW(menu, MF_STRING, QUIT, wide("Quit SC-MiningAssist").as_ptr());
             let mut p = POINT::default();
             GetCursorPos(&mut p);
             SetForegroundWindow(hwnd);

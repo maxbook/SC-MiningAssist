@@ -1,10 +1,10 @@
-<p align="center"><img src="assets/miningmod.svg" width="80" alt="MiningMod crystal icon"></p>
+<p align="center"><img src="assets/sc-mining-assist.svg" width="80" alt="SC-MiningAssist crystal icon"></p>
 
-# MiningMod
+# SC-MiningAssist
 
 **Read the signature. See the resource. Keep flying.**
 
-A small, local **Star Citizen mining and salvage overlay for Windows**, written in Rust. MiningMod reads the RS number on screen and shows the matching resource and estimated rock count, or the number of salvage panels.
+A small, local **Star Citizen mining and salvage overlay for Windows**, written in Rust. SC-MiningAssist reads the RS number on screen and shows the matching resource and estimated rock count, or the number of salvage panels.
 
 <p align="center"><img src="docs/images/hud.png" width="565" alt="One-line overlay: Bexalite, 3 rocks, HIGH"></p>
 
@@ -18,15 +18,15 @@ A small, local **Star Citizen mining and salvage overlay for Windows**, written 
 
 Requires **Windows 10/11 x64** with an English or French Windows OCR language installed. The app is entirely in English.
 
-1. Download the portable **MiningMod-v0.1.0-win64.zip** from [GitHub Releases](https://github.com/maxbook/miningmod/releases/tag/v0.1.0). Extract the archive; do not run it from inside the ZIP.
-2. Open **MiningMod.exe** and click **Start scanning**.
+1. Download the portable **SC-MiningAssist-v0.1.0-win64.zip** from [GitHub Releases](https://github.com/maxbook/SC-MiningAssist/releases/tag/v0.1.0). Extract the archive; do not run it from inside the ZIP.
+2. Open **SC-MiningAssist.exe** and click **Start scanning**.
 3. Return to Star Citizen in **borderless windowed mode** and display an RS signature in scan mode.
 
-<p align="center"><img src="docs/images/panel.png" width="320" alt="MiningMod control window with Ready status, Start scanning and Quit"></p>
+<p align="center"><img src="docs/images/panel.png" width="320" alt="SC-MiningAssist control window with Ready status, Start scanning and Quit"></p>
 
 **Ctrl + Alt + F8** pauses or resumes detection. Double-click the tray icon to reopen the window, or right-click it for controls. **Quit**, the close button, Alt+F4 and taskbar Close all exit the app. Launching it a second time reopens the existing window.
 
-No installer or administrator privileges are needed. MiningMod starts paused and does not add itself to Windows startup. The first preview is unsigned.
+No installer or administrator privileges are needed. SC-MiningAssist starts paused and does not add itself to Windows startup. The first preview is unsigned.
 
 ## What the result means
 
@@ -64,7 +64,7 @@ Install [Rust with rustup](https://www.rust-lang.org/tools/install), Visual Stud
 
 ## License and credits
 
-MiningMod code and original icon artwork are available under the [MIT license](LICENSE). Dependency licenses are included in [THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt).
+SC-MiningAssist code and original icon artwork are available under the [MIT license](LICENSE). Dependency licenses are included in [THIRD_PARTY_NOTICES.txt](THIRD_PARTY_NOTICES.txt).
 
 Signature references: [STARVEIN](https://starvein.app/en/signatures), [SC Signature Scanner salvage data](https://github.com/Diftic/SC_Signature_Scanner/blob/master/SignatureValue.md#salvage). Mineral ratings: [SCMINER](https://scminer.rocks/data/mineral-directory). Attribution is also kept with the data.
 

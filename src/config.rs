@@ -46,7 +46,7 @@ impl Settings {
         std::env::var_os("LOCALAPPDATA")
             .map(PathBuf::from)
             .unwrap_or_else(std::env::temp_dir)
-            .join("MiningMod")
+            .join("SC-MiningAssist")
             .join("settings.json")
     }
     pub fn load() -> Self {
