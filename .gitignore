@@ -1,0 +1,14 @@
+/.tools/
+/target/
+/dist/
+/artifacts/
+*.log
+*.dmp
+*.pdb
+.env
+.env.*
+!.env.example
+/.vs/
+/.idea/
+Thumbs.db
+Desktop.ini
